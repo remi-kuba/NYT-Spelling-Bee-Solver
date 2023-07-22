@@ -1,7 +1,12 @@
 from flask import Flask, render_template, request
 from main import create_trie, spelling_bee_solver
+import os 
 
 app = Flask(__name__)
+
+dir = os.path.dirname(os.path.abspath(__file__))
+template_folder = os.path.join(dir,"template")
+app.template_folder = template_folder
 
 @app.route('/')
 def index():
