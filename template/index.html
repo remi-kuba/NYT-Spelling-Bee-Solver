@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spelling Bee Solver</title>
+    <style>
+        body {
+            font-family: Gill Sans, sans-serif; 
+            font-weight: 400;
+            color: black;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        h1 {
+            font-family: Gill Sans, sans-serif;
+            font-size: 28px; 
+        }
+
+        h2, h3 {
+            font-size: 22px;
+            color: goldenrod;
+        }
+
+        h4 {
+            font-size: 14px;
+            color: goldenrod;
+        }
+
+        input[type="text"] {
+            outline: none;
+        }
+        input#outer_letters,input#required_letter {
+            border: 3px solid goldenrod;
+            background-color: white;
+            border-radius: 4px;
+        }
+        input#outer_letters:focus, input#required_letter:focus{
+            border: 3px solid darkgoldenrod;
+            background-color: white;
+            outline: none;
+        }
+
+        input[type='radio']:after {
+            width: 13px;
+            height: 13px;
+            border-radius: 13px;
+            left: -3px;
+            top: -3px;
+            position: relative;
+            background-color: lightgrey;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 4px solid white;
+        }
+
+        input[type='radio']:checked:after {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            top: -3px;
+            left: -3px;
+            position: relative;
+            background-color: #ffa500;
+            content: '';
+            display: inline-block;
+            visibility: visible;
+            border: 2px solid white;
+        }
+
+        input[type="button"] {
+            background-color: goldenrod; 
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: none;
+            padding: 5px 15px; 
+            cursor: pointer; 
+            border-radius: 8px; /* Round out */
+            box-shadow: grey;
+        }
+        input[type="button"]:hover {background-color: goldenrod}
+        input[type="button"]:active {
+            background-color: goldenrod;
+            box-shadow: 0 5px grey;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+<body>
+    <h1>NYT Spelling Bee Solver</h1>
+    <h2>Enter the Letters</h2>
+
+
+    <form action = "/submit" method="post">
+        <label for="letters">Outer Letters (in grey):</label>
+        <input type="text" name="outer_letters" id="outer_letters" maxlength="6" required pattern="[A-Za-z]+""><br><br>
+        <label for="required">Middle Letter (in yellow):</label>
+        <input type="text" name="middle_letter" id="required_letter" maxlength="1" required pattern="[A-Za-z]+"><br>
+
+        <h3>Choose Dictionary</h3>
+        <h4>Note: the dictionary NYT uses for Spelling Bee is unknown,<br>so the solutions may not be completely accurate</h4>
+
+        <label>
+            <input type="radio" name="dictionary" value="short"> Shorter Dictionary (may not get all words)
+        </label>
+        <br>
+        <label>
+            <input type="radio" name="dictionary" value="long"> Longer Dictionary (extraneous words)
+        </label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
+
