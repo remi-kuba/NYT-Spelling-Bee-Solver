@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spelling Bee Solver Results</title>
+    
+    <style>
+        body {
+            font-family: Gill Sans, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: goldenrod;
+            font-size: 28px; 
+        }
+
+        ul {
+            list-style-type: none; 
+            padding: 0;
+        }
+
+        li {
+            font-size: 16px;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Results</h1>
+    <ul>
+        {% for word in words %}
+            <li>{{ word }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back</a>
+</body>
+</html>
